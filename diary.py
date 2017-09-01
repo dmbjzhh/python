@@ -40,7 +40,8 @@ def read():
 	text.pack_forget()
 	listBox.pack()
 
-def showDiary():
+def showDiary(event):
+	print listBox.curselection()
 	title = listBox.get(listBox.curselection())
 	showTitle = title[:-4]
 	textVar.set(showTitle)
@@ -78,7 +79,7 @@ root.title("For Sweetie")
 saveBtn = Button(root, text = "Save", command = save)
 saveBtn.pack(side = LEFT, anchor='sw')
 
-quitBtn = Button(root, text = "quit")
+quitBtn = Button(root, text = "quit", command =quit)
 quitBtn.pack(side = RIGHT, anchor = 'se')
 
 writeBtn = Button(root, text = "write diary", command = write)
