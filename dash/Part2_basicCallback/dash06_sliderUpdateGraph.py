@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+# 将csv文件中的数据可视化为散点图，并且可以根据底下年份的slider来查看不同的数据
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -16,17 +20,17 @@ app.layout = html.Div([
         id = 'year-slider',
         min = df['year'].min(),
         max = df['year'].max(),
-        value = df['year'].min(),
+        value = df['year'].min(),    # 初始值为最小的年份
         step = None,
-        marks = {str(year) : str(year) for year in df['year'].unique()}
+        marks = {str(year) : str(year) for year in df['year'].unique()}    # slider的点，不同的年份对应不同的点
     )
 ])
 
 @app.callback(
-    dash.dependencies.Output('graph-with-slider', 'figure'),
+    dash.dependencies.Output('graph-with-slider', 'figure'),    # 省略了component_id和component_property这两个关键字
     [dash.dependencies.Input('year-slider', 'value')]
 )
-def update_figurelalala(selected_year):
+def update_figure(selected_year):    # callback函数
     filtered_df = df[df.year == selected_year]
     traces = []
     for i in filtered_df.continent.unique():
