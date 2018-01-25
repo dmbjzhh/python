@@ -1,0 +1,1 @@
+{"links_add": [], "nodes_remove": [{"group": 1, "name": "1176:userinit.exe"}], "nodes_add": [], "links_remove": [{"source": "492:winlogon.exe", "target_group": 1, "target": "1176:userinit.exe", "source_group": 1}, {"source": "1176:userinit.exe", "target_group": 1, "target": "1204:explorer.exe", "source_group": 1}]}
