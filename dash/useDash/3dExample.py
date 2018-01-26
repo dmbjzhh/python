@@ -62,24 +62,24 @@ trace1=Scatter3d(
     y=Ye,
     z=Ze,
     mode='lines',
-    #line=Line(color='rgb(125,125,125)', width=1),
+    line=Line(color='rgb(125,125,125)', width=1),
     hoverinfo='none'
 )
 trace2=Scatter3d(
     x=Xn,
     y=Yn,
     z=Zn,
-    mode='markers',
+    mode='markers+text',
     name='actors',
     marker=Marker(
         symbol='dot',
         size=6,
         color=group,
-        colorscale='Viridis',
-        #line=Line(color='rgb(50,50,50)', width=0.5)
+        colorscale='Portland',
+        line=Line(color='rgb(50,50,50)', width=0.5)
     ),
     text=labels,
-    hoverinfo='text'
+    # hoverinfo='text'
 )
 
 axis=dict(
@@ -95,16 +95,16 @@ layout = Layout(
     title="Network of coappearances of characters in Victor Hugo's novel<br> Les Miserables (3D visualization)",
     width=1000,
     height=1000,
-    showlegend=True,
-    # scene=Scene(
-    #     xaxis=XAxis(axis),
-    #     yaxis=YAxis(axis),
-    #     zaxis=ZAxis(axis),
-    # ),
+    showlegend=False,
+    scene=Scene(
+        xaxis=XAxis(axis),
+        yaxis=YAxis(axis),
+        zaxis=ZAxis(axis),
+    ),
     margin=Margin(
         t=100
     ),
-    hovermode='closest',
+    hovermode=False,
     annotations=Annotations([
         Annotation(
             showarrow=False,
