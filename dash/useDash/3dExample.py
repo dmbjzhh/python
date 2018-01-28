@@ -53,7 +53,7 @@ Xe=[]
 Ye=[]
 Ze=[]
 for e in Edges:
-    Xe+=[layt[e[0]][0],layt[e[1]][0], None] # 边缘的x坐标
+    Xe+=[layt[e[0]][0],layt[e[1]][0], None] # 边的x坐标
     Ye+=[layt[e[0]][1],layt[e[1]][1], None]
     Ze+=[layt[e[0]][2],layt[e[1]][2], None]
 

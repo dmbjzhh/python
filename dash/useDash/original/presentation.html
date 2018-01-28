@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memory Presentation</title>
+	<meta charset="utf-8">
+	<style>	
+	.tooltip{
+		position: function() {
+			return {
+				x: 60,
+				y: 80
+			}
+		} 
+
+		font-family: simsun;
+		font-size: 20px;
+		text-align: left;
+		border-style: solid; 
+		border-width: 5px;
+		background-color: white;
+		border-radius: 5px;
+	}
+
+	</style>
+	
+	
+<script src="d3.v3.js"></script>
+</head>
+<body>
+	<input type="button" value="prev" onclick="prev()"/> 
+	<input type="button" value="next" onclick="next()"/>
+	<script type="text/javascript">
+		Array.prototype.getNodeIndex = function(e){
+  			for(var i=0;i<this.length;i++){
+    			if (this[i].name==e.name && this[i].group==e.group)
+    				return i;
+  			}
+ 			return -1;
+		}
+
+   		Array.prototype.getLinkIndex = function(e){
+  			for(var i=0;i<this.length;i++){
+    			if(right=this[i].source==e.source && this[i].target==e.target)
+    				return i;
+  			}
+ 			return -1;
+		}
+
+   		var current=0;		
+		var width = window.innerWidth*0.9,height = window.innerHeight*0.9;
+		var color = d3.scale.category10();
+		var zoom = d3.behavior.zoom()
+					.scaleExtent([-1,3])
+					.on("zoom", zoomed);
+		
+		var svg = d3.select("body").append("svg")
+    				.attr("width", width)
+   					.attr("height", height)
+					.call(zoom);
+		var container = svg.append("g");
+		function zoomed() {
+ 			 container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+		}			
+		var tooltip = d3.select("body")
+						.append("div")
+						.attr("class","tooltip")
+						.style("opacity",0.0);
+
+   		var edge,node,text,force;
+   		var nodes=[],links=[];
+	    
+   		d3.json("res0.json",function(error,json){
+   			if (error) return;
+
+   			links=json["links"];
+   			generateGraph();
+   		});
+
+   		function generateGraph(){
+   			links.forEach(function(link){
+				    var sourceIndex=nodes.getNodeIndex({name:link.source,group:link.source_group});
+				    if(sourceIndex==-1){
+				       link.source={name:link.source,group:link.source_group};
+				       nodes.push(link.source);
+				    }
+				    else link.source=nodes[sourceIndex];
+
+				    var targetIndex=nodes.getNodeIndex({name:link.target,group:link.target_group});
+				    if(targetIndex==-1){
+				      link.target={name:link.target,group:link.target_group};
+				      nodes.push(link.target);
+				    }
+				    else link.target=nodes[targetIndex];
+  			});
+
+   			force=d3.layout.force()
+   				    .nodes(nodes)
+			        .links(links)
+			        .charge(-120)
+			        .linkDistance(30)
+			        .size([width, height])
+			        .on("tick",tick)
+			        .start();
+					
+			var drag = force.drag()
+					.on("dragstart",function(d,i){
+						d.fixed=true; 
+					})
+					.on("dragend",function(d,i){
+					})
+					.on("drag",function(d,i){
+					});
+
+   			edge=container.selectAll("line")
+			        .data(links)
+			        .enter()
+			        .append("line")
+			        .style("stroke","black")
+			        .style("stroke-width",1);
+
+			node=container.selectAll("circle")
+			        .data(nodes)
+			        .enter()
+			        .append("circle")
+			        .attr("r",function(d){
+			        	if(d.group==1)return 9;
+			        	if(d.group%2==0)return 7;
+			        	return 5;
+			        })
+			        .style("fill",function(d){
+			        	return color(d.group);
+			        })
+					.on("dblclick",function(d,i){d.fixed = false;})
+			        .on("mouseover",function(d){
+			        	var pid=d.name.slice(0,d.name.indexOf(":"));
+			        	var name=d.name.slice(d.name.indexOf(":")+1);
+			        	if(d.group==6 || d.group==4 || d.group==2){
+			        		var detail="";
+			        		nodes.forEach(function(node){
+			        					nodePid=node.name.slice(0,d.name.indexOf(":"));
+									   	if(node.group==d.group+1 && pid==nodePid){
+									   		content=node.name.slice(d.name.indexOf(":")+1);
+									   		detail+=content+" ";
+									   	}
+									   	if(nodePid==pid && node.group==1){
+									   		name=node.name.slice(d.name.indexOf(":")+1)+"<br/>type: "+name;
+									   	}
+					  			});
+							tooltip.html("pid:"+pid + "<br />process name: "+name+ "<br />detail:"+detail);
+			        	}
+			        	else{
+			        		tooltip.html("pid:"+pid + "<br />process name: "+name);
+			        	}
+			        	})
+						.on("mouseout",function(d){
+						tooltip.style("opacity",1.0);})
+						.call(force.drag);
+
+			text=container.selectAll("text")
+					.data(nodes)
+        	    	.enter()
+        	    	.append("text")
+        	    	.attr("x",8)
+        	    	.attr("y",".31em")
+        	    	.text(function(d){
+        	    		if(d.group==1 || d.group%2==0)
+						return d.name.slice(d.name.indexOf(":")+1);
+       	  	   		});
+   		}
+
+
+   		function tick(){
+   			node.attr("cx", function(d) { if (d.x <0) d.x=0;else if (d.x >width) d.x=width; return d.x;})
+		        .attr("cy", function(d) { if (d.y <0) d.y=0;else if (d.y >height) d.y=height; return d.y;});
+		    edge.attr("x1", function(d) { return d.source.x;})
+		        .attr("y1", function(d) { return d.source.y;})
+		        .attr("x2", function(d) { return d.target.x;})
+		        .attr("y2", function(d) { return d.target.y;});
+		    text.attr("transform",function(d){return "translate("+d.x+","+d.y+")";});
+   		}
+
+   		function next(){
+   			current+=1;
+   			var filename="diff"+current.toString()+".json";
+   			d3.json(filename,function(error,json){
+   				if(error){
+   					console.log("it is the last one!");
+   					current-=1;
+   					return ;
+   				}
+   				var rmLinks=json["links_remove"] || [];
+   				var rmNodes=json["nodes_remove"] || [];
+   				var addLinks=json["links_add"] || [];
+   
+   				update(rmLinks,rmNodes,addLinks);
+   			});
+   		}
+
+   		function prev(){
+   			if(current<1){
+   				console.log("it is the first one!");
+   				return ;
+   			}
+			current-=1;
+   			var filename="diff"+current.toString()+".json";
+   			d3.json(filename,function(error,json){
+   				if(error)return ;
+
+   				var rmLinks=json["links_add"] || [];
+   				var rmNodes=json["nodes_add"] || [];
+   				var addLinks=json["links_remove"] || [];
+   				update(rmLinks,rmNodes,addLinks);
+   			});
+   			
+   		}
+   		
+   		function update(removeLinks,removeNodes,incLinks){
+   				removeLinks.forEach(function(link){
+   					var sourceIndex=nodes.getNodeIndex({name:link.source,group:link.source_group});
+				    link.source=nodes[sourceIndex];
+				    var targetIndex=nodes.getNodeIndex({name:link.target,group:link.target_group});
+				    link.target=nodes[targetIndex];
+				    var linkIndex=links.getLinkIndex(link);
+
+				    console.log(linkIndex);
+				    links.splice(linkIndex,1);
+				});
+
+   				console.log(removeNodes);
+   				for (var i = removeNodes.length - 1; i >= 0; i--) {
+   					var removeIndex=nodes.getNodeIndex(removeNodes[i]);
+				    nodes.splice(removeIndex,1);
+   				};
+
+   				edge=edge.data(links);
+				edge.exit().remove();
+				node=node.data(nodes);
+				node.exit().remove();
+				text=text.data(nodes);
+			    text.exit().remove();
+//		-------------------------------------------------
+
+				incLinks.forEach(function(link){
+   					var sourceIndex=nodes.getNodeIndex({name:link.source,group:link.source_group});
+				    if(sourceIndex==-1){
+				       link.source={name:link.source,group:link.source_group};
+				       nodes.push(link.source);
+				    }
+				    else link.source=nodes[sourceIndex];
+
+				    var targetIndex=nodes.getNodeIndex({name:link.target,group:link.target_group});
+				    if(targetIndex==-1){
+				      link.target={name:link.target,group:link.target_group};
+				      nodes.push(link.target);
+				    }
+				    else link.target=nodes[targetIndex];
+
+				    links.push(link); 
+				});
+
+ 			 	edge=edge.data(links);
+				edge.enter()
+				 	.append("line")
+				 	.style("stroke","red")
+			     	.style("stroke-width",1);
+
+				node=node.data(nodes);
+				node.enter()
+					.append("circle")
+					.attr("r",function(d){
+			    	    if(d.group==1)return 9;
+			    	    if(d.group%2==0)return 7;
+			    	    return 5;
+			    	})
+			    	.style("fill",function(d){
+			    		return "red"
+			    		return color(d.group);
+			    	})
+					.on("dblclick",function(d,i){d.fixed = false;})
+			    	.call(force.drag);
+
+				text=text.data(nodes);
+			    text.enter()
+			        .append("text")
+			        .attr("x",8)
+			        .attr("y",".31em")
+			        .text(function(d){
+			           	if(d.group==1 || d.group%2==0){
+							return d.name.slice(d.name.indexOf(":")+1);
+			           	}
+			        });	
+				
+			    force.start();
+   		}
+		
+// 		function zoomed() {
+//   container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+// }
+		
+	</script>>
+</body>
+</html>

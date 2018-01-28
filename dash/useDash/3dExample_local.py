@@ -18,9 +18,12 @@ with open("E:/python_git/python/dash/useDash/json/3dexample.json","r") as f:
 
 N=len(data['nodes'])
 
+# L = 254
 L=len(data['links'])
+# Edges是一个长度为254数组，数组的元素是元组，元组是source和target的元组对
 Edges=[(data['links'][k]['source'], data['links'][k]['target']) for k in range(L)]
 
+# 只有数字，顶点名称或igraph.Vertex对象可以转换为顶点ID
 G=ig.Graph(Edges, directed=False)
 
 labels=[]
@@ -29,6 +32,7 @@ for node in data['nodes']:
     labels.append(node['name'])
     group.append(node['group'])
 
+# 具有77个顶点和3维布局
 layt=G.layout('kk', dim=3)
 
 Xn=[layt[k][0] for k in range(N)]# 节点的x坐标
@@ -38,7 +42,7 @@ Xe=[]
 Ye=[]
 Ze=[]
 for e in Edges:
-    Xe+=[layt[e[0]][0],layt[e[1]][0], None] # 边缘的x坐标
+    Xe+=[layt[e[0]][0],layt[e[1]][0], None] # 边的x坐标
     Ye+=[layt[e[0]][1],layt[e[1]][1], None]
     Ze+=[layt[e[0]][2],layt[e[1]][2], None]
 

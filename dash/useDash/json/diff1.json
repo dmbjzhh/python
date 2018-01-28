@@ -1,1 +1,249 @@
-{"links_add": [], "nodes_remove": [{"group": 1, "name": "1492:imjpmig.exe"}, {"group": 6, "name": "1492:privileges"}, {"group": 7, "name": "1492:('SeManageVolumePrivilege', 'Manage the files on a volume')"}, {"group": 7, "name": "1492:('SeTakeOwnershipPrivilege', 'Take ownership of files/objects')"}, {"group": 7, "name": "1492:('SeLoadDriverPrivilege', 'Load and unload device drivers')"}, {"group": 7, "name": "1492:('SeShutdownPrivilege', 'Shut down the system')"}, {"group": 7, "name": "1492:('SeProfileSingleProcessPrivilege', 'Profile a single process')"}, {"group": 7, "name": "1492:('SeCreateGlobalPrivilege', 'Create global objects')"}, {"group": 7, "name": "1492:('SeRestorePrivilege', 'Restore files and directories')"}, {"group": 7, "name": "1492:('SeUndockPrivilege', 'Remove computer from docking station')"}, {"group": 7, "name": "1492:('SeDebugPrivilege', 'Debug programs')"}, {"group": 7, "name": "1492:('SeIncreaseQuotaPrivilege', 'Increase quotas')"}, {"group": 7, "name": "1492:('SeSystemtimePrivilege', 'Change the system time')"}, {"group": 7, "name": "1492:('SeChangeNotifyPrivilege', 'Receive notifications of changes to files or directories')"}, {"group": 7, "name": "1492:('SeSystemEnvironmentPrivilege', 'Edit firmware environment values')"}, {"group": 7, "name": "1492:('SeSystemProfilePrivilege', 'Profile system performance')"}, {"group": 7, "name": "1492:('SeIncreaseBasePriorityPrivilege', 'Increase scheduling priority')"}, {"group": 7, "name": "1492:('SeCreatePagefilePrivilege', 'Create a pagefile')"}, {"group": 7, "name": "1492:('SeBackupPrivilege', 'Backup files and directories')"}, {"group": 7, "name": "1492:('SeImpersonatePrivilege', 'Impersonate a client after authentication')"}, {"group": 7, "name": "1492:('SeSecurityPrivilege', 'Manage auditing and security log')"}, {"group": 7, "name": "1492:('SeRemoteShutdownPrivilege', 'Force shutdown from a remote system')"}], "nodes_add": [], "links_remove": [{"source": "1204:explorer.exe", "target_group": 1, "target": "1492:imjpmig.exe", "source_group": 1}, {"source": "1492:imjpmig.exe", "target_group": 6, "group": 6, "target": "1492:privileges", "source_group": 1}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeManageVolumePrivilege', 'Manage the files on a volume')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeTakeOwnershipPrivilege', 'Take ownership of files/objects')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeLoadDriverPrivilege', 'Load and unload device drivers')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeShutdownPrivilege', 'Shut down the system')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeProfileSingleProcessPrivilege', 'Profile a single process')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeCreateGlobalPrivilege', 'Create global objects')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeRestorePrivilege', 'Restore files and directories')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeUndockPrivilege', 'Remove computer from docking station')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeDebugPrivilege', 'Debug programs')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeIncreaseQuotaPrivilege', 'Increase quotas')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeSystemtimePrivilege', 'Change the system time')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeChangeNotifyPrivilege', 'Receive notifications of changes to files or directories')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeSystemEnvironmentPrivilege', 'Edit firmware environment values')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeSystemProfilePrivilege', 'Profile system performance')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeIncreaseBasePriorityPrivilege', 'Increase scheduling priority')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeCreatePagefilePrivilege', 'Create a pagefile')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeBackupPrivilege', 'Backup files and directories')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeImpersonatePrivilege', 'Impersonate a client after authentication')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeSecurityPrivilege', 'Manage auditing and security log')", "source_group": 6}, {"source": "1492:privileges", "target_group": 7, "group": 7, "target": "1492:('SeRemoteShutdownPrivilege', 'Force shutdown from a remote system')", "source_group": 6}]}
+{
+    "links_add": [],
+    "nodes_remove": [
+        {
+            "group": 1,
+            "name": "1492:imjpmig.exe"
+        },
+        {
+            "group": 6,
+            "name": "1492:privileges"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeManageVolumePrivilege', 'Manage the files on a volume')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeTakeOwnershipPrivilege', 'Take ownership of files/objects')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeLoadDriverPrivilege', 'Load and unload device drivers')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeShutdownPrivilege', 'Shut down the system')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeProfileSingleProcessPrivilege', 'Profile a single process')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeCreateGlobalPrivilege', 'Create global objects')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeRestorePrivilege', 'Restore files and directories')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeUndockPrivilege', 'Remove computer from docking station')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeDebugPrivilege', 'Debug programs')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeIncreaseQuotaPrivilege', 'Increase quotas')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeSystemtimePrivilege', 'Change the system time')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeChangeNotifyPrivilege', 'Receive notifications of changes to files or directories')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeSystemEnvironmentPrivilege', 'Edit firmware environment values')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeSystemProfilePrivilege', 'Profile system performance')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeIncreaseBasePriorityPrivilege', 'Increase scheduling priority')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeCreatePagefilePrivilege', 'Create a pagefile')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeBackupPrivilege', 'Backup files and directories')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeImpersonatePrivilege', 'Impersonate a client after authentication')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeSecurityPrivilege', 'Manage auditing and security log')"
+        },
+        {
+            "group": 7,
+            "name": "1492:('SeRemoteShutdownPrivilege', 'Force shutdown from a remote system')"
+        }
+    ],
+    "nodes_add": [],
+    "links_remove": [
+        {
+            "source": "1204:explorer.exe",
+            "target_group": 1,
+            "target": "1492:imjpmig.exe",
+            "source_group": 1
+        },
+        {
+            "source": "1492:imjpmig.exe",
+            "target_group": 6,
+            "group": 6,
+            "target": "1492:privileges",
+            "source_group": 1
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeManageVolumePrivilege', 'Manage the files on a volume')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeTakeOwnershipPrivilege', 'Take ownership of files/objects')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeLoadDriverPrivilege', 'Load and unload device drivers')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeShutdownPrivilege', 'Shut down the system')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeProfileSingleProcessPrivilege', 'Profile a single process')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeCreateGlobalPrivilege', 'Create global objects')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeRestorePrivilege', 'Restore files and directories')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeUndockPrivilege', 'Remove computer from docking station')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeDebugPrivilege', 'Debug programs')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeIncreaseQuotaPrivilege', 'Increase quotas')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeSystemtimePrivilege', 'Change the system time')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeChangeNotifyPrivilege', 'Receive notifications of changes to files or directories')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeSystemEnvironmentPrivilege', 'Edit firmware environment values')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeSystemProfilePrivilege', 'Profile system performance')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeIncreaseBasePriorityPrivilege', 'Increase scheduling priority')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeCreatePagefilePrivilege', 'Create a pagefile')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeBackupPrivilege', 'Backup files and directories')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeImpersonatePrivilege', 'Impersonate a client after authentication')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeSecurityPrivilege', 'Manage auditing and security log')",
+            "source_group": 6
+        },
+        {
+            "source": "1492:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1492:('SeRemoteShutdownPrivilege', 'Force shutdown from a remote system')",
+            "source_group": 6
+        }
+    ]
+}
