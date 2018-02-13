@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
 
 import dash
 import dash_core_components as dcc
@@ -13,7 +13,7 @@ data = []
 
 # 读取json文件放到data数组中
 
-with open("E:/python_git/python/dash/useDash/json/res0.json","r") as f:
+with open("E:/develop/MyCode/python_git/python/dash/useDash/json/res0.json","r") as f:
     data = json.loads(f.read())
 
 L=len(data['links'])

@@ -208,7 +208,31 @@ json文件分为res0.json，和后续的diff.json文件
 
 marker：
 
-* sizesrc
+* 对于size，可以考虑
+
+  * sizeref和sizemode
+
+    用法：
+
+    ```
+    sizeref = 2*max(df_2007['size'])/(60**2)
+    trace1 = go.Scatter(
+        mode='markers',
+        name='Americas',
+        marker=dict(
+            sizemode='area',
+            sizeref=sizeref,
+            size=df_2007['size'][df_2007['continent'] == 'Americas'],
+            line=dict(
+                width=2
+            ),
+        )
+    ```
+
+    ​
+
+  * sizesrc
+
 * colorsrc
 
 
@@ -217,10 +241,14 @@ marker：
 #### 进一步改进
 
 * marker显示文字以后，整个图特别乱，文字太多，要设置成特定元素有文字，根节点就不要文字了
+* 用size区分结点
+* 给按钮加回调函数使其动态显示
 
 #### 还存在的问题
 
 ~~查阅文档后，发现marker不能直接在旁边显示相应文字说明，要鼠标放上去才能出现~~
+
+鼠标滑过的文本框的样式还是大同小异，只能改改背景颜色、边框颜色、字体等
 
 #### 关于python读写json文件
 
