@@ -5,4 +5,5 @@
 * server_diary是一个和服务器交互的写/看日记小程序，写好的日记会存在服务器中
 * ml_algorithms是机器学习算法实现
 * dash是数据可视化dash库的代码练习
+* awesome-python-webapp是廖雪峰python教程2.7版本的练习
 
