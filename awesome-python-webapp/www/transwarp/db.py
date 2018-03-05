@@ -165,4 +165,9 @@ def with_connection(func):
         f2()
         f3()
     '''
+    @functools.wraps(func)
+    def _wrapper(*args, **kw)：
+        with _ConnectionCtx():
+            return func(*args, **kw)
+    return _wrapper
     
