@@ -76,27 +76,26 @@
 
 
   PlotlyError: Because you didn't supply a 'file_id' in the call, we're assuming you're trying to snag a figure from a url. You supplied the url, '', we expected it to start with 'https://plot.ly'.
-  ```
 
   出现错误的原因：没有得到plotly.py的认证文件
 
   获得方法：
 
-  1. 在 [这里](https://plot.ly/feed/) 创建一个账号
+    1. 在 [这里](https://plot.ly/feed/) 创建一个账号
 
-  2. 在 [这里](https://plot.ly/settings/api) 获得API的key
+    2. 在 [这里](https://plot.ly/settings/api) 获得API的key
 
-  3. 在尝试获取图像前，输入这两行代码
-
+    3. 在尝试获取图像前，输入这两行代码
   ```
-     import plotly
+import plotly
 
-     plotly.tools.set_credentials_file(username='dmbjzhh', api_key='PLUgUfiM4uDCSpOw66Yb')
-     ```
-    
-     这样保证了可以接入plotly
+plotly.tools.set_credentials_file(username='dmbjzhh', api_key='PLUgUfiM4uDCSpOw66Yb')
+  ```
 
-  运行成功的结果：
+这样保证了可以接入plotly
+
+
+运行成功的结果：
 
   ```
   High five! You successfully sent some data to your account on plotly. View your plot in your browser at https://plot.ly/~dmbjzhh/0 or inside your plot.ly account where it is named 'Les-Miserables'
@@ -110,8 +109,6 @@
   import plotly.graph_objs as go
   go.Scatter3D
   ```
-
-  ​
 
 * 示例中的json文件由node和link组成
 
@@ -216,7 +213,8 @@ marker：
 
 #### 进一步改进
 
-* marker显示文字以后，整个图特别乱，文字太多，要设置成特定元素有文字，根节点就不要文字了
+* marker显示文字以后，整个图特别乱，文字太多，要设置成特定元素有文字，叶节点就不要文字了
+* 用Size区分节点
 
 #### 还存在的问题
 
