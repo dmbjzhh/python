@@ -215,6 +215,107 @@ def pr(y):
 for x in l.filter(pr):
     print(x)
 
+# 单链表的简单改进版本——带有尾结点引用的单链表，因为之前的单链表尾端加入元素操作效率低
+class LList_improve(LList):
+    def __init__(self):
+        LList.__init__(self)
+        self._rear = None # 尾指针
+    
+    # 头插法的重新定义
+    def prepend(self, elem):
+        if self._head is None: # 是空表
+            self._head = LNode(elem, self._head)
+            self._rear = self._head
+        else:
+            self._head = LNode(elem, self._head)
+    # 尾插法的重新定义
+    def append(self, elem):
+        if self._head is None:
+            self._head = LNode(elem, self._head)
+            self._rear = self._head
+        else:
+            self._rear.next = LNode(elem) # next为空，因为是最后一个结点
+            self._rear = self._rear.next
 
-        
+    # pop无需重新定义，因为同一使用_head为None判断空表有关
 
+    # 弹出末元素的操作
+    def pop_last(self):
+        if self._head is None: # 是空表
+            raise LinkedListUnderflow('in pop_last')
+        p = self._head
+        if p.next is None: # 表中只有一个元素
+            e = p.elem
+            self._head = None
+            return e
+        while p.next.next is not None: # 直到p.next是最后结点
+            p = p.next
+        e = p.next.elem
+        p.next = None
+        self._rear = p
+        return e
+
+# 测试带尾指针的单链表
+print('-------------')
+mlist1 = LList_improve()
+mlist1.prepend(99)
+for i in range(11, 20):
+    mlist1.append(i)
+mlist1.printall()
+
+for x in mlist1.filter(lambda y: y % 2 == 0):
+    print(x)
+
+# 循环单链表的类，最后一个结点指向不为空，而是指向头结点
+# 选择尾指针而不是头指针，访问头尾会更方便
+class LCList:
+    def __init__(self):
+        self._rear = None
+    
+    def is_empty(self):
+        return self._rear is None
+
+    # 前端插入
+    def prepend(self, elem):
+        p = LNode(elem)
+        if self._rear is None:
+            p.next = p
+            self._rear = p
+        else:
+            p.next = self._rear.next
+            self._rear.next = p
+
+    # 尾端插入    
+    def append(self, elem):
+        self.prepend(elem)
+        self._rear = self._rear.next # 相当于先头插了，然后再把尾指针移过去，反正是个循环，想怎么指都行咯
+    
+    # 前端弹出
+    def pop(self):
+        if self._rear is None:
+            raise LinkedListUnderflow('in pop of LCList')
+        p = self._rear.next
+        if self._rear is p: # 只有一个结点
+            self._rear = None
+        else:
+            self._rear.next = p.next
+        return p.elem
+    
+    # 输出表元素
+    def printall(self):
+        if self.is_empty():
+            return
+        p = self._rear.next
+        while True:
+            print(p.elem)
+            if p is self._rear:
+                break
+            p = p.next
+
+# 测试循环单链表
+print('-------------')
+mlist2 = LCList()
+mlist2.prepend(99)
+for i in range(11, 20):
+    mlist2.append(i)
+mlist2.printall()
