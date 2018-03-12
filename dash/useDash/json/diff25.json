@@ -1,1 +1,30 @@
-{"links_add": [], "nodes_remove": [{"group": 2, "name": "1764:injection"}, {"group": 3, "name": "1764:('0x3c0000', 'VadS')"}], "nodes_add": [], "links_remove": [{"source": "1764:mscorsvw.exe", "target_group": 2, "group": 2, "target": "1764:injection", "source_group": 1}, {"source": "1764:injection", "target_group": 3, "group": 3, "target": "1764:('0x3c0000', 'VadS')", "source_group": 2}]}
+{
+    "links_add": [],
+    "nodes_remove": [
+        {
+            "group": 2,
+            "name": "1764:injection"
+        },
+        {
+            "group": 3,
+            "name": "1764:('0x3c0000', 'VadS')"
+        }
+    ],
+    "nodes_add": [],
+    "links_remove": [
+        {
+            "source": "1764:mscorsvw.exe",
+            "target_group": 2,
+            "group": 2,
+            "target": "1764:injection",
+            "source_group": 1
+        },
+        {
+            "source": "1764:injection",
+            "target_group": 3,
+            "group": 3,
+            "target": "1764:('0x3c0000', 'VadS')",
+            "source_group": 2
+        }
+    ]
+}

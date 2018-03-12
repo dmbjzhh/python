@@ -1,1 +1,74 @@
-{"links_add": [{"source": "944:svchost.exe", "target_group": 4, "group": 4, "target": "944:connection", "source_group": 1}, {"source": "548:lsass.exe", "target_group": 4, "group": 4, "target": "548:connection", "source_group": 1}, {"source": "548:connection", "target_group": 5, "group": 5, "target": "548:('0.0.0.0', '500')", "source_group": 4}, {"source": "548:connection", "target_group": 5, "group": 5, "target": "548:('0.0.0.0', '4500')", "source_group": 4}, {"source": "944:connection", "target_group": 5, "group": 5, "target": "944:('0.0.0.0', '1026')", "source_group": 4}, {"source": "548:connection", "target_group": 5, "group": 5, "target": "548:('0.0.0.0', '0')", "source_group": 4}], "nodes_remove": [], "nodes_add": [{"group": 4, "name": "944:connection"}, {"group": 4, "name": "548:connection"}, {"group": 5, "name": "548:('0.0.0.0', '500')"}, {"group": 5, "name": "548:('0.0.0.0', '4500')"}, {"group": 5, "name": "944:('0.0.0.0', '1026')"}, {"group": 5, "name": "548:('0.0.0.0', '0')"}], "links_remove": []}
+{
+    "links_add": [
+        {
+            "source": "944:svchost.exe",
+            "target_group": 4,
+            "group": 4,
+            "target": "944:connection",
+            "source_group": 1
+        },
+        {
+            "source": "548:lsass.exe",
+            "target_group": 4,
+            "group": 4,
+            "target": "548:connection",
+            "source_group": 1
+        },
+        {
+            "source": "548:connection",
+            "target_group": 5,
+            "group": 5,
+            "target": "548:('0.0.0.0', '500')",
+            "source_group": 4
+        },
+        {
+            "source": "548:connection",
+            "target_group": 5,
+            "group": 5,
+            "target": "548:('0.0.0.0', '4500')",
+            "source_group": 4
+        },
+        {
+            "source": "944:connection",
+            "target_group": 5,
+            "group": 5,
+            "target": "944:('0.0.0.0', '1026')",
+            "source_group": 4
+        },
+        {
+            "source": "548:connection",
+            "target_group": 5,
+            "group": 5,
+            "target": "548:('0.0.0.0', '0')",
+            "source_group": 4
+        }
+    ],
+    "nodes_remove": [],
+    "nodes_add": [
+        {
+            "group": 4,
+            "name": "944:connection"
+        },
+        {
+            "group": 4,
+            "name": "548:connection"
+        },
+        {
+            "group": 5,
+            "name": "548:('0.0.0.0', '500')"
+        },
+        {
+            "group": 5,
+            "name": "548:('0.0.0.0', '4500')"
+        },
+        {
+            "group": 5,
+            "name": "944:('0.0.0.0', '1026')"
+        },
+        {
+            "group": 5,
+            "name": "548:('0.0.0.0', '0')"
+        }
+    ],
+    "links_remove": []
+}

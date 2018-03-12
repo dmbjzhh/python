@@ -1,1 +1,32 @@
-{"links_add": [{"source": "848:connection", "target_group": 5, "group": 5, "target": "848:('127.0.0.1', '1029')", "source_group": 4}], "nodes_remove": [{"group": 5, "name": "848:('0.0.0.0', '1028')"}], "nodes_add": [{"group": 5, "name": "848:('127.0.0.1', '1029')"}], "links_remove": [{"source": "848:connection", "target_group": 5, "group": 5, "target": "848:('0.0.0.0', '1028')", "source_group": 4}]}
+{
+    "links_add": [
+        {
+            "source": "848:connection",
+            "target_group": 5,
+            "group": 5,
+            "target": "848:('127.0.0.1', '1029')",
+            "source_group": 4
+        }
+    ],
+    "nodes_remove": [
+        {
+            "group": 5,
+            "name": "848:('0.0.0.0', '1028')"
+        }
+    ],
+    "nodes_add": [
+        {
+            "group": 5,
+            "name": "848:('127.0.0.1', '1029')"
+        }
+    ],
+    "links_remove": [
+        {
+            "source": "848:connection",
+            "target_group": 5,
+            "group": 5,
+            "target": "848:('0.0.0.0', '1028')",
+            "source_group": 4
+        }
+    ]
+}

@@ -1,1 +1,52 @@
-{"links_add": [{"source": "1672:malware.exe", "target_group": 2, "group": 2, "target": "1672:injection", "source_group": 1}, {"source": "1672:injection", "target_group": 3, "group": 3, "target": "1672:('0xb40000', 'VadS')", "source_group": 2}, {"source": "1672:injection", "target_group": 3, "group": 3, "target": "1672:('0xb30000', 'VadS')", "source_group": 2}, {"source": "848:connection", "target_group": 5, "group": 5, "target": "848:('127.0.0.1', '123')", "source_group": 4}], "nodes_remove": [], "nodes_add": [{"group": 2, "name": "1672:injection"}, {"group": 3, "name": "1672:('0xb40000', 'VadS')"}, {"group": 3, "name": "1672:('0xb30000', 'VadS')"}, {"group": 5, "name": "848:('127.0.0.1', '123')"}], "links_remove": []}
+{
+    "links_add": [
+        {
+            "source": "1672:malware.exe",
+            "target_group": 2,
+            "group": 2,
+            "target": "1672:injection",
+            "source_group": 1
+        },
+        {
+            "source": "1672:injection",
+            "target_group": 3,
+            "group": 3,
+            "target": "1672:('0xb40000', 'VadS')",
+            "source_group": 2
+        },
+        {
+            "source": "1672:injection",
+            "target_group": 3,
+            "group": 3,
+            "target": "1672:('0xb30000', 'VadS')",
+            "source_group": 2
+        },
+        {
+            "source": "848:connection",
+            "target_group": 5,
+            "group": 5,
+            "target": "848:('127.0.0.1', '123')",
+            "source_group": 4
+        }
+    ],
+    "nodes_remove": [],
+    "nodes_add": [
+        {
+            "group": 2,
+            "name": "1672:injection"
+        },
+        {
+            "group": 3,
+            "name": "1672:('0xb40000', 'VadS')"
+        },
+        {
+            "group": 3,
+            "name": "1672:('0xb30000', 'VadS')"
+        },
+        {
+            "group": 5,
+            "name": "848:('127.0.0.1', '123')"
+        }
+    ],
+    "links_remove": []
+}

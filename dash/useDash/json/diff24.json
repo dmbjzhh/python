@@ -1,1 +1,85 @@
-{"links_add": [], "nodes_remove": [{"group": 3, "name": "492:('0x2ddc0000', 'VadS')"}, {"group": 3, "name": "492:('0x4e4f0000', 'VadS')"}, {"group": 3, "name": "492:('0x526c0000', 'VadS')"}, {"group": 3, "name": "492:('0x63b50000', 'VadS')"}, {"group": 3, "name": "492:('0x5f1f0000', 'VadS')"}, {"group": 3, "name": "492:('0x55e10000', 'VadS')"}, {"group": 3, "name": "492:('0x99c0000', 'VadS')"}], "nodes_add": [], "links_remove": [{"source": "492:injection", "target_group": 3, "group": 3, "target": "492:('0x2ddc0000', 'VadS')", "source_group": 2}, {"source": "492:injection", "target_group": 3, "group": 3, "target": "492:('0x4e4f0000', 'VadS')", "source_group": 2}, {"source": "492:injection", "target_group": 3, "group": 3, "target": "492:('0x526c0000', 'VadS')", "source_group": 2}, {"source": "492:injection", "target_group": 3, "group": 3, "target": "492:('0x63b50000', 'VadS')", "source_group": 2}, {"source": "492:injection", "target_group": 3, "group": 3, "target": "492:('0x5f1f0000', 'VadS')", "source_group": 2}, {"source": "492:injection", "target_group": 3, "group": 3, "target": "492:('0x55e10000', 'VadS')", "source_group": 2}, {"source": "492:injection", "target_group": 3, "group": 3, "target": "492:('0x99c0000', 'VadS')", "source_group": 2}]}
+{
+    "links_add": [],
+    "nodes_remove": [
+        {
+            "group": 3,
+            "name": "492:('0x2ddc0000', 'VadS')"
+        },
+        {
+            "group": 3,
+            "name": "492:('0x4e4f0000', 'VadS')"
+        },
+        {
+            "group": 3,
+            "name": "492:('0x526c0000', 'VadS')"
+        },
+        {
+            "group": 3,
+            "name": "492:('0x63b50000', 'VadS')"
+        },
+        {
+            "group": 3,
+            "name": "492:('0x5f1f0000', 'VadS')"
+        },
+        {
+            "group": 3,
+            "name": "492:('0x55e10000', 'VadS')"
+        },
+        {
+            "group": 3,
+            "name": "492:('0x99c0000', 'VadS')"
+        }
+    ],
+    "nodes_add": [],
+    "links_remove": [
+        {
+            "source": "492:injection",
+            "target_group": 3,
+            "group": 3,
+            "target": "492:('0x2ddc0000', 'VadS')",
+            "source_group": 2
+        },
+        {
+            "source": "492:injection",
+            "target_group": 3,
+            "group": 3,
+            "target": "492:('0x4e4f0000', 'VadS')",
+            "source_group": 2
+        },
+        {
+            "source": "492:injection",
+            "target_group": 3,
+            "group": 3,
+            "target": "492:('0x526c0000', 'VadS')",
+            "source_group": 2
+        },
+        {
+            "source": "492:injection",
+            "target_group": 3,
+            "group": 3,
+            "target": "492:('0x63b50000', 'VadS')",
+            "source_group": 2
+        },
+        {
+            "source": "492:injection",
+            "target_group": 3,
+            "group": 3,
+            "target": "492:('0x5f1f0000', 'VadS')",
+            "source_group": 2
+        },
+        {
+            "source": "492:injection",
+            "target_group": 3,
+            "group": 3,
+            "target": "492:('0x55e10000', 'VadS')",
+            "source_group": 2
+        },
+        {
+            "source": "492:injection",
+            "target_group": 3,
+            "group": 3,
+            "target": "492:('0x99c0000', 'VadS')",
+            "source_group": 2
+        }
+    ]
+}
