@@ -6,6 +6,7 @@ import dash_html_components as html
 import plotly.graph_objs as go
 import json
 import igraph as ig
+import os,sys
 
 app = dash.Dash()
 
@@ -26,9 +27,14 @@ app.scripts.append_script({
 
 data = []
 
+json_path = os.path.join(sys.path[0], 'json') # 组合成json文件夹的路径
+json_files = os.listdir(json_path) # 读取json文件名
+
+json_files_num = len(json_files) # json文件个数，用于slider插件上
+
 # 读取json文件放到data数组中
 
-with open("E:/python_git/python/dash/useDash/json/res0.json","r") as f:
+with open(os.path.join(json_path, 'res0.json'),"r") as f:
     data = json.loads(f.read())
 
 L=len(data['links'])
@@ -126,23 +132,43 @@ app.layout = html.Div([
             'textAlign': 'center'
         }
     ),
-    
     html.Div([
-        html.Button(
-            'prev',
-            id = 'prev-button',
-            style = {
-                'float': 'left'
-            }
-        ),
-        html.Button(
-            'next',
-            id = 'next-button',
-            style = {
-                'float': 'left'
-            }
-        )
-    ],style={'height':40}),
+        html.Div([
+            html.Button(
+                'prev',
+                id = 'prev-button',
+                style = {
+                    'float': 'left'
+                }
+            ),
+            html.Div([
+                dcc.Slider(
+                    id='my-slider',
+                    min=0,
+                    max=json_files_num-1,
+                    marks={i: '{}'.format(i) for i in range(json_files_num)},
+                    value=0,
+                )
+            ], style = {
+                'width':800,
+                'marginLeft': 20,
+                'marginRight':20,
+                'float':'left'
+                }),
+            
+            html.Button(
+                'next',
+                id = 'next-button',
+                style = {
+                    'float': 'left'
+                }
+            )
+        ],
+        style={
+            'height':40,
+            'display': 'inline-block'
+        })
+    ], style={'textAlign': 'center', 'marginTop':20}),
 
     dcc.Graph(
         id = 'network-graph',
