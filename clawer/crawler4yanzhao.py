@@ -1,5 +1,10 @@
 # -*- coding=utf8 -*-
 
+'''
+一个研招网调剂系统的爬虫
+'''
+
+
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
@@ -11,9 +16,9 @@ import time
 
 import smtplib
 from email.mime.text import MIMEText
-_user = ''
-_pwd  = 'nppkocjvfmisbbjg'
-_to   = ''
+_user = '' # 填写qq邮箱
+_pwd  = '' # 填写qq邮箱授权码
+_to   = '' # 填写目标邮箱
 
 msg = MIMEText("快去填志愿")
 msg["Subject"] = "档案学上线啦"
