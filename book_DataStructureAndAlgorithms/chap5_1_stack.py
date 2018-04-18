@@ -29,13 +29,6 @@ class SStack():
             raise StackUnderflow('in SStack.pop()')
         return self._elems.pop()
 
-# 测试顺序栈类
-st1 = SStack()
-st1.push(3)
-st1.push(5)
-while not st1.is_empty():
-    print(st1.pop())
-
 
 # 栈的链接表实现，用LNode作为结点
 
@@ -66,13 +59,6 @@ class LStack():
         self._top = p.next
         return p.elem
 
-# 测试链接栈类
-st2 = LStack()
-st2.push(2)
-st2.push(1)
-while not st2.is_empty():
-    print(st2.pop())
-
 # 栈的应用--反转链表
 def reverse_list(args):
     str3 = SStack()
@@ -82,9 +68,6 @@ def reverse_list(args):
     while not str3.is_empty():
         new_list.append(str3.pop())
     return new_list
-
-l = [1,2,3,4,5,6]
-print reverse_list(l)
 
 # 栈的应用--括号匹配
 
@@ -133,15 +116,6 @@ def check_parens(text):
     else:
         print 'Unmatching is found at {0} for {1}'.format(i, pr)
         return False
-
-p1 = '(a+n){}[]{}(adsd)'
-print check_parens(p1)
-
-p2 = '{}('
-print check_parens(p2)
-
-p3 = '{})'
-print check_parens(p3)
 
 # 栈的应用--后缀表达式的计算
 
@@ -258,9 +232,6 @@ def test_trans_infix_suffix(s):
     print trans_infix_suffix(s)
     print 'value: ', suf_exp_evaluator(trans_infix_suffix(s))
 
-s1 = '(3-5) * (6+17 * 4)/2'
-
-test_trans_infix_suffix(s1)
 
 # 栈的应用--递归，求阶乘
 
@@ -271,7 +242,6 @@ def fact(n):
     else:
         return n * fact(n-1)
 
-print fact(5)
 
 # 非递归方法
 def norec_fact(n):
@@ -284,7 +254,6 @@ def norec_fact(n):
         res *= st.pop()
     return res
 
-print norec_fact(5)
 
 # 背包问题
 # 问题描述：一个背包可以放入重量为weight的物品，现有n件物品的集合S，其中物品的重量分别为w0,w1...wn-1
@@ -306,4 +275,44 @@ def knap_rec(weight, wlist, n):
     else:
         return False
 
-print knap_rec(5, [3,1,2], 3)
+
+# 测试合集
+if __name__ == '__main__':
+    # 测试顺序栈类
+    st1 = SStack()
+    st1.push(3)
+    st1.push(5)
+    while not st1.is_empty():
+        print(st1.pop())
+
+    # 测试链接栈类
+    st2 = LStack()
+    st2.push(2)
+    st2.push(1)
+    while not st2.is_empty():
+        print(st2.pop())
+
+    # 测试反转链表
+    l = [1,2,3,4,5,6]
+    print reverse_list(l)
+
+    # 测试括号匹配
+    p1 = '(a+n){}[]{}(adsd)'
+    print check_parens(p1)
+
+    p2 = '{}('
+    print check_parens(p2)
+
+    p3 = '{})'
+    print check_parens(p3)
+
+    # 测试中缀转后缀
+    s1 = '(3-5) * (6+17 * 4)/2'
+    test_trans_infix_suffix(s1)
+
+    # 测试递归和非递归求阶乘
+    print fact(5)
+    print norec_fact(5)
+
+    # 测试背包问题
+    print knap_rec(5, [3,1,2], 3)
