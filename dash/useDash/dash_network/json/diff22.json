@@ -1,0 +1,293 @@
+{
+    "links_add": [
+        {
+            "source": "848:svchost.exe",
+            "target_group": 1,
+            "target": "1384:wuauclt.exe",
+            "source_group": 1
+        },
+        {
+            "source": "1384:wuauclt.exe",
+            "target_group": 6,
+            "group": 6,
+            "target": "1384:privileges",
+            "source_group": 1
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeBackupPrivilege', 'Backup files and directories')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeProfileSingleProcessPrivilege', 'Profile a single process')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeRestorePrivilege', 'Restore files and directories')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeChangeNotifyPrivilege', 'Receive notifications of changes to files or directories')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeImpersonatePrivilege', 'Impersonate a client after authentication')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeIncreaseBasePriorityPrivilege', 'Increase scheduling priority')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeCreateTokenPrivilege', 'Create a token object')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeManageVolumePrivilege', 'Manage the files on a volume')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeCreateGlobalPrivilege', 'Create global objects')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeTcbPrivilege', 'Act as part of the operating system')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeAuditPrivilege', 'Generate security audits')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeShutdownPrivilege', 'Shut down the system')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeCreatePermanentPrivilege', 'Create permanent shared objects')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeCreatePagefilePrivilege', 'Create a pagefile')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeUndockPrivilege', 'Remove computer from docking station')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeSecurityPrivilege', 'Manage auditing and security log')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeIncreaseQuotaPrivilege', 'Increase quotas')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeLockMemoryPrivilege', 'Lock pages in memory')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeSystemEnvironmentPrivilege', 'Edit firmware environment values')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeDebugPrivilege', 'Debug programs')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeLoadDriverPrivilege', 'Load and unload device drivers')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeAssignPrimaryTokenPrivilege', 'Replace a process-level token')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeTakeOwnershipPrivilege', 'Take ownership of files/objects')",
+            "source_group": 6
+        },
+        {
+            "source": "1384:privileges",
+            "target_group": 7,
+            "group": 7,
+            "target": "1384:('SeSystemtimePrivilege', 'Change the system time')",
+            "source_group": 6
+        }
+    ],
+    "nodes_remove": [],
+    "nodes_add": [
+        {
+            "group": 1,
+            "name": "1384:wuauclt.exe"
+        },
+        {
+            "group": 6,
+            "name": "1384:privileges"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeBackupPrivilege', 'Backup files and directories')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeProfileSingleProcessPrivilege', 'Profile a single process')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeRestorePrivilege', 'Restore files and directories')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeChangeNotifyPrivilege', 'Receive notifications of changes to files or directories')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeImpersonatePrivilege', 'Impersonate a client after authentication')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeIncreaseBasePriorityPrivilege', 'Increase scheduling priority')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeCreateTokenPrivilege', 'Create a token object')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeManageVolumePrivilege', 'Manage the files on a volume')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeCreateGlobalPrivilege', 'Create global objects')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeTcbPrivilege', 'Act as part of the operating system')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeAuditPrivilege', 'Generate security audits')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeShutdownPrivilege', 'Shut down the system')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeCreatePermanentPrivilege', 'Create permanent shared objects')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeCreatePagefilePrivilege', 'Create a pagefile')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeUndockPrivilege', 'Remove computer from docking station')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeSecurityPrivilege', 'Manage auditing and security log')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeIncreaseQuotaPrivilege', 'Increase quotas')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeLockMemoryPrivilege', 'Lock pages in memory')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeSystemEnvironmentPrivilege', 'Edit firmware environment values')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeDebugPrivilege', 'Debug programs')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeLoadDriverPrivilege', 'Load and unload device drivers')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeAssignPrimaryTokenPrivilege', 'Replace a process-level token')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeTakeOwnershipPrivilege', 'Take ownership of files/objects')"
+        },
+        {
+            "group": 7,
+            "name": "1384:('SeSystemtimePrivilege', 'Change the system time')"
+        }
+    ],
+    "links_remove": []
+}

@@ -1,0 +1,19 @@
+{
+    "links_add": [],
+    "nodes_remove": [
+        {
+            "group": 5,
+            "name": "848:('127.0.0.1', '123')"
+        }
+    ],
+    "nodes_add": [],
+    "links_remove": [
+        {
+            "source": "848:connection",
+            "target_group": 5,
+            "group": 5,
+            "target": "848:('127.0.0.1', '123')",
+            "source_group": 4
+        }
+    ]
+}
