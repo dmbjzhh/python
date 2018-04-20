@@ -39,13 +39,6 @@ def draw_network(network):
     bpy.ops.object.select_all(action='DESELECT')
     # bpy.ops.mesh.primitive_uv_sphere_add()
     # sphere = bpy.context.object
-    # 以下设置圆柱体和圆锥体分别用来表示连接的边和箭头的，我们不需要箭头
-    # bpy.ops.mesh.primitive_cylinder_add()
-    # cylinder = bpy.context.object
-    # cylinder.active_material = bpy.data.materials["light_gray"]
-    # bpy.ops.mesh.primitive_cone_add()
-    # cone = bpy.context.object
-    # cone.active_material = bpy.data.materials["light_gray"]
 
     # 保存所有节点和边的引用
     shapes = []
@@ -103,26 +96,11 @@ def draw_network(network):
         #bpy.data.objects[target_name].parent = bpy.data.objects[source_name]
         # cent = [(c2 + c1) / 2 for c2, c1 in zip(source_loc, target_loc)]
         # mag = sum([(c2 - c1) ** 2
-        #           for c1, c2 in zip(source_loc, target_loc)]) ** 0.5
-
-        # # 复制原始网格来创建边
-        # edge_cylinder = cylinder.copy()
-        # edge_cylinder.data = cylinder.data.copy()
-        # edge_cylinder.dimensions = [edge_thickness] * 2 + [mag - node_size]
-        # edge_cylinder.location = cent
-        # edge_cylinder.rotation_mode = "AXIS_ANGLE"
-        # edge_cylinder.rotation_axis_angle = [angle] + list(v_rot)
-        # bpy.context.scene.objects.link(edge_cylinder)
-        # shapes.append(edge_cylinder)
-        # shapes_to_smooth.append(edge_cylinder)
-
-        
+        #           for c1, c2 in zip(source_loc, target_loc)]) ** 0.5        
 
     # 删除原始网格
     bpy.ops.object.select_all(action='DESELECT')
     # sphere.select = True
-    # cylinder.select = True
-    # cone.select = True
 
     # 删除启动时的小方块
     if "Cube" in bpy.data.objects.keys():
@@ -134,13 +112,6 @@ def draw_network(network):
         shape.select = True
     bpy.context.scene.objects.active = shapes_to_smooth[0]
     bpy.ops.object.shade_smooth()
-
-    # 我们不需要合并，通过设置父子关系来看
-    # # 将生成的多个物体合并成一个，方便旋转等操作
-    # for shape in shapes:
-    #     shape.select = True
-    # bpy.context.scene.objects.active = shapes[0]
-    # bpy.ops.object.join()
 
     # 将整个物体居中对齐
     bpy.ops.object.origin_set(type="ORIGIN_GEOMETRY", center="MEDIAN")
