@@ -246,6 +246,127 @@ def build_opt_btree(wp, wq):
             r[i][j] = k0
     
     return c, r
+
+# 平衡二叉树——AVL树
+class AVLNode(BinTNode):
+    def __init__(self, data):
+        BinTNode.__init__(self, data)
+        self.bf = 0
+
+class DictAVL(DictBinTree):
+    def __init__(self):
+        DictBinTree.__init__(self)
+    
+    @staticmethod
+    def LL(a, b):
+        a.left = b.right
+        b.right = a
+        a.bf = b.bf = 0
+        return b
+    
+    @staticmethod
+    def RR(a, b):
+        a.right = b.left
+        b.left = a
+        a.bf = b.bf = 0
+        return b
+    
+    @staticmethod
+    def LR(a, b):
+        c = b.right
+        a.left, b.right = c.right, c.left
+        c.left, c.right = b, a
+        if c.bf == 0: # c本身就是插入结点
+            a.bf = b.bf = 0
+        elif c.bf == 1: # 新结点在c的左子树
+            a.bf = -1
+            b.bf = 0
+        else:
+            a.bf = 0
+            b.bf = 1
+        c.bf = 0
+        return c
+    
+    @staticmethod
+    def RL(a, b):
+        c = b.left
+        a.right, b.left = c.left, c.right
+        c.left, c.right = a, b
+        if c.bf == 0: # c 本身就是插入结点
+            a.bf = 0
+            b.bf = 0
+        elif c.bf == 1: # 新结点在c的左子树
+            a.bf = 0
+            b.bf = -1
+        else: # 新结点在c的右子树
+            a.bf = 1
+            b.bf = 0
+        c.bf = 0
+        return c
+    
+    def insert(self, key, value):
+        a = p = self._root
+        if a is None:
+            self._root = AVLNode(Assoc(key, value))
+            return
+        pa = q = None # 维持pa，q为a和p的父结点
+        while p is not None: # 确定插入位置及最小非平衡子树
+            if key == p.data.key: # key存在，修改关联值并结束
+                p.data.value = value
+                return
+            if p.bf != 0:
+                pa, a = q, p # 已知最小非平衡子树
+            q = p
+            if key < p.data.key:
+                p = p.left
+            else:
+                p = p.right
+        # q是插入点的父结点，pa，a记录最小非平衡子树
+        node = AVLNode(Assoc(key, value))
+        if key < q.data.key:
+            q.left = node # 作为左子结点
+        else:
+            q.right = node # 或右子结点
+        # 新结点已插入，a是最小不平衡子树
+        if key < a.data.key: # 新结点在a的左子树
+            p = b = a.left
+            d = 1
+        else: # 新结点在a的右子树
+            p = b = a.right 
+            d = -1 # d记录新结点在a的哪棵子树
+        # 修改b到新结点路径上各结点BF值，b为a的子结点
+        while p != node: # node一定存在，不用判断p空
+            if key < a.data.key: # p的左子树增高
+                p.bf = 1
+                p = p.left
+            else: # p的右子树增高
+                p.bf = -1
+                p = p.right
+        if a.bf == 0: # a的原BF为0，不会失衡
+            a.bf = d
+            return
+        if a.bf == -d: # 新结点在较低子树里
+            a.bf = 0
+            return
+        # 新结点在较高子树里，失衡，必须调整
+        if d == 1: # 新结点在a的左子树里
+            if b.bf == 1:
+                b = DictAVL.LL(a, b) # LL调整
+            else:
+                b = DictAVL.LR(a, b) # LR调整
+        else: # 新结点在a的右子树里
+            if b.bf == -1: # RR调整
+                b = DictAVL.RR(a, b)
+            else: # RL调整
+                b = DictAVL.RL(a, b) 
+        if pa is None: # 原a为树根，修改_root
+            self._root = b
+        else: # 若a非树根，新树接在正确位置
+            if pa.left == a:
+                pa.left = b
+            else:
+                pa.right =b
+
 if __name__ == "__main__":
     # 测试线性字典类
     d1 = DictList()
