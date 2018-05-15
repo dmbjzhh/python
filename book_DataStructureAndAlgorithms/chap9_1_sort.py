@@ -124,7 +124,64 @@ def quick_sort_another(lst):
         lst[begin], lst[i] = lst[i], lst[begin]
         qsort(lst, begin, i-1)
         qsort(lst, i+1, end)
-                
+
+# 书中的归并排序
+def merge(lfrom, lto, low, mid, high):
+    i, j, k = low, mid, low
+    while i < mid and j < high: # 反复赋值两分段首记录中较小的
+        if lfrom[i] <= lfrom[j]:
+            lto[k] = lfrom[i]
+            i += 1
+        else:
+            lto[k] = lfrom[j]
+            j += 1
+        k += 1
+    while i < mid: # 复制第一段剩余记录
+        lto[k] = lfrom[i]
+        i += 1
+        k += 1
+    while j < high: # 复制第二段剩余记录
+        lto[k] = lfrom[j]
+        j += 1
+        k += 1
+def merge_pass(lfrom, lto, llen, slen):
+    i = 0
+    while i + 2 * slen < llen: # 归并长slen的两段
+        merge(lfrom, lto, i, i+slen, i+2*slen)
+        i += 2 * slen
+    if i + slen < llen: # 剩下两段，后段长度小于slen
+        merge(lfrom, lto, i, i+slen, llen)
+    else: # 只剩下一段，复制到表lto
+        for j in range(i, llen):
+            lto[j] = lfrom[j]
+def merge_sort(lst):
+    slen, llen = 1, len(lst)
+    templst = [None]*llen
+    while slen < llen:
+        merge_pass(lst, templst, llen, slen)
+        slen *= 2
+        merge_pass(templst, lst, llen, slen) # 结果存回原位
+        slen *= 2
+    
+# 书中的分配排序
+class record:
+    def __init__(self, key, datum):
+        self.key = key
+        self.datum = datum
+        
+def radix_sort(lst, d):
+    rlists = [[] for i in range(10)]
+    llen = len(lst)
+    for m in range(-1, -d-1, -1):
+        for j in range(llen):
+            rlists[lst[j].key[m]].append(lst[j])
+        j = 0
+        for i in range(10):
+            tmp = rlists[i]
+            for k in range(len(tmp)):
+                lst[j] = tmp[k]
+                j += 1
+            rlists.remove(rlists[i])
 
 if __name__ == "__main__":
     l1 = [2, 3, 1, 4, 9, 6, 5, 8, 7]
@@ -142,6 +199,9 @@ if __name__ == "__main__":
     l5 = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8]
     quick_sort_mine(l5)
     print l5
+    l6 = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8]
+    merge_sort(l6)
+    print l6
 
 
 
