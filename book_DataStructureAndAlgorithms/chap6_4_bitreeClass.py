@@ -61,13 +61,6 @@ def print_BinTNodes_post(t):
     print str(t.data),
     print ')',
 
-t = BinTNode(1, BinTNode(2,None,BinTNode(5)), BinTNode(3))
-print_BinTNodes_pre(t)
-print ''
-print_BinTNodes_mid(t)
-print ''
-print_BinTNodes_post(t)
-
 # 层次遍历
 def levelorder(t):
     qu = SQueue()
@@ -81,10 +74,6 @@ def levelorder(t):
         qu.enqueue(n.left)
         qu.enqueue(n.right)
 
-print ''
-levelorder(t)
-print ''
-
 # 非递归的先序遍历，用栈
 from chap5_1_stack import SStack
 
@@ -96,8 +85,6 @@ def preorder_nonrec(t):
             print t.data, # 把print改成yield，就成了一个二叉树迭代器
             t = t.left
         t = s.pop()
-
-preorder_nonrec(t)
 
 # 非递归的后序遍历
 # 总的来说，内层循环会先找到当前子树的最下最左结点，将入栈后终止；
@@ -116,9 +103,6 @@ def postorder_nonrec(t):
             t = s.top().right
         else:
             t = None # 没有右子树或右子树遍历完毕，强迫退栈
-print ''
-postorder_nonrec(t)
-print ''
 
 class BinTree:
     def __init__(self):
@@ -154,12 +138,6 @@ class BinTree:
                 t = t.left
             t = s.pop()
 
-bt = BinTree()
-bt.set_root(BinTNode(1, BinTNode(2,None,BinTNode(5)), BinTNode(3)))
-
-for i in bt.preorder_elements():
-    print i,
-
 # 二叉树的应用——哈夫曼树
 
 class HTNode(BinTNode):
@@ -181,5 +159,32 @@ def HuffmanTree(weights):
         trees.enqueue(HTNode(x, t1, t2))
     return trees.dequeue()
 
-print ''
-print_BinTNodes_pre(HuffmanTree([2,2,5,10,4,3,7]))
+if __name__ == "__main__":
+    # 测试前中后序遍历
+    t = BinTNode(1, BinTNode(2,None,BinTNode(5)), BinTNode(3))
+    print_BinTNodes_pre(t)
+    print ''
+    print_BinTNodes_mid(t)
+    print ''
+    print_BinTNodes_post(t)
+    # 测试层次遍历
+    print ''
+    levelorder(t)
+    print ''
+    # 测试非递归先序遍历
+    preorder_nonrec(t)
+    # 测试非递归后序遍历
+    print ''
+    postorder_nonrec(t)
+    print ''
+    # 测试二叉树类
+    bt = BinTree()
+    bt.set_root(BinTNode(1, BinTNode(2,None,BinTNode(5)), BinTNode(3)))
+
+    for i in bt.preorder_elements():
+        print i,
+    # 测试哈夫曼树
+    print_BinTNodes_pre(HuffmanTree([2,2,5,10,4,3,7]))
+
+
+
