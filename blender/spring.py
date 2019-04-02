@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 # Force-Directed Graph Drawing
 
 import Tkinter
@@ -39,7 +40,7 @@ m = len(d)
 
 root = Tkinter.Tk()
 
-canvas = Tkinter.Canvas(root, width=500, height=500, background="yellow")
+canvas = Tkinter.Canvas(root, width=500, height=500, background="yellow") # 创建给定大小的画布
 canvas.pack()
 
 x = []
@@ -48,10 +49,11 @@ ids = []
 
 
 def move_oval(i):
-    newx = int(x[i][0] * 500)
-    newy = int(x[i][1] * 500)
-    canvas.coords(ids[i], newx - 5, newy - 5, newx + 5, newy + 5)
+    newx = int(x[i][0] * 500) # 点的坐标等于 500
+    newy = int(x[i][1] * 500) # 点的坐标等于500
+    canvas.coords(ids[i], newx - 5, newy - 5, newx + 5, newy + 5) # 调整每个点
 
+# 创建一个红点在画布上
 for i in xrange(m):
     xi = [random.random(), random.random()]
     x.append(xi)
@@ -72,13 +74,13 @@ def move_line(id, xi, xj):
 
 for i in xrange(m):
     for j in xrange(m):
-        if d[i][j] != 0:
+        if d[i][j] != 0: # 如果边存在
             id = canvas.create_line(0, 0, 0, 0)
             lids.append(id)
             move_line(id, x[i], x[j])
 
 
-def Coulomb_force(xi, xj):
+def Coulomb_force(xi, xj): # 斥力
     dx = xj[0] - xi[0]
     dy = xj[1] - xi[1]
     ds2 = dx * dx + dy * dy
@@ -91,7 +93,7 @@ def Coulomb_force(xi, xj):
     return [-const * dx, -const * dy]
 
 
-def Hooke_force(xi, xj, dij):
+def Hooke_force(xi, xj, dij): # 引力
     dx = xj[0] - xi[0]
     dy = xj[1] - xi[1]
     ds = math.sqrt(dx * dx + dy * dy)
@@ -121,7 +123,7 @@ def move():
         ekint[0] = ekint[0] + alpha * (v[i][0] * v[i][0])
         ekint[1] = ekint[1] + alpha * (v[i][1] * v[i][1])
 
-    print "total kinetic energy: %lf" % math.sqrt(ekint[0] * ekint[0] + ekint[1] * ekint[1])
+    # print "total kinetic energy: %lf" % math.sqrt(ekint[0] * ekint[0] + ekint[1] * ekint[1])
 
     for i in xrange(m):
         x[i][0] += v[i][0] * delta_t
